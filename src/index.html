@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda de bebidas">
+    <meta name="Keywords"  content="Cerveza, Fernet, whisky, Gin, jugo naranja, coca-cola">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="icon" href="assets/img/favicon2.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Tienda de bebidas</title>
+</head>
+<body>
+    <header>
+        <div class="redesSociales animate__animated animate__backInLeft"> <!-- en esta div estan las redes sociales -->
+            <a href="https://www.instagram.com"><img src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721672-instagram_108066.png" alt="instagram" title="boton_instagram"/></a>
+            <a href="https://www.instagram.com"><img src="https://cdn.icon-icons.com/icons2/99/PNG/512/whatsapp_socialnetwork_17360.png" alt="whatsapp" title="boton_whatsapp"/></a>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light"> <!-- este es el navegador-->
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav navegacion">
+                    <li class="nav-item menu">
+                        <a class="titulo nav-link">Tienda</a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container m-3 row">
+            <div class="container col" id="productos-container" style="display: flex; flex-wrap: wrap; justify-content: space-between">
+                <!-- Las cards se generan dinámicamente desde JavaScript -->
+            </div>              
+        <div class="tabla container m-5">
+            <table class="table table-dark">         
+                <thead class="thead-dark">
+                    <tr id="trId">
+                        <th>Nombre</th>
+                        <th>Marca</th>
+                        <th>Medida</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Subtotal</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="items" class="table-striped"></tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="5" style="text-align-last: end; text-transform: uppercase; font-weight: bold;">Total: </th>
+                        <th id="total" style="font-weight: bold; text-transform: uppercase;"></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="container m-1">
+            <button id="agregar" class="btn btn-primary">Agregar</button>
+            <button id="ordenar" class="btn btn-primary">
+                Ordenar
+            </button>
+            <button id="vaciar" class="btn btn-primary">
+                Vaciar
+            </button>
+        </div>
+    </main>
+    <footer>  <!-- este es el footer con ASAP por el mundo-->  
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="js/producto.js"></script> 
+<script src="js/class.js"></script> 
+<script src="js/app.js"></script> 
+</body>
+</html>
