@@ -89,7 +89,7 @@ stock.push(new Producto("Cerveza", "Corona", "710 ml", 700, "https://beermarket.
 stock.push(new Producto("Fernet", "Branca", "1L", 2400, "https://quirinobebidas.com.ar/wp-content/uploads/2020/06/Fernet-Branca-2.jpg"));
 stock.push(new Producto("Tequila", "Jose Cuervo", "750ml", 10000, "https://whiskypedia.com.ar/wp-content/uploads/2020/06/Tequila-Jose-Cuervo-Reposado-750-ml.jpg"));
 stock.push(new Producto("Vodka", "Absolut", "700ml", 5100, "https://www.alcodisonline.es/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/1/_/vodka-absolut-blue-40-i1-1468.jpg"));
-stock.push(new Producto("Extra bruit", "Chandon", "750ml", 2500, "https://segundacopa.com.ar/wp-content/uploads/2019/11/Chandon-Extra-Brut.jpg"));
+stock.push(new Producto("Extra bruit", "Chandon", "750ml", 2500, "https://www.planetabebidas.com.ar/wp-content/uploads/2019/10/chandon-extra-brut-750ml.jpg"));
 stock.push(new Producto("Vino Malbec", "Portillo", "750ml", 1100, "https://quirinobebidas.com.ar/wp-content/uploads/2020/07/EL-PORTILLO-MB.jpg"));
 stock.push(new Producto("Vino Blanco", "Portillo", "750ml", 1100, "https://www.espaciovino.com.ar/media/default/0001/59/thumb_58924_default_big.jpeg" ));
 stock.push(new Producto("Gaseosa", "Coca-Cola", "2,25L", 700, "https://quirinobebidas.com.ar/wp-content/uploads/2020/08/LOS-PRIMEROS-10-LLEVAN-PLACA-DE-REGALO-11.png"));
@@ -379,16 +379,23 @@ function realizarCompra(datosTarjeta) {
   const numOrden = generarNumeroOrden();
   const correoElectronico = datosTarjeta.correo;
 
-  Swal.fire({
-    title: "¡Compra realizada!",
-    html: `Gracias por tu compra.<br>Te estaremos enviando la información de tu compra a: <strong>${correoElectronico}</strong>.<br>Número de orden: <strong>${numOrden}</strong>`,
-    icon: "success",
-    confirmButtonText: "Aceptar",
-  }).then(() => {
-    carrito = [];
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-    actualizarTablaCarrito();
+  const promesa = new Promise((resolve) => {
+    Swal.fire({
+      title: "¡Compra realizada!",
+      html: `Gracias por tu compra.<br>Te estaremos enviando la información de tu compra a: <strong>${correoElectronico}</strong>.<br>Número de orden: <strong>${numOrden}</strong>`,
+      icon: "success",
+      confirmButtonText: "Aceptar",
+    }).then(() => {
+      setTimeout(() => {
+        carrito = [];
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        actualizarTablaCarrito();
+        resolve();
+      }, 2000);
+    });
   });
+
+  return promesa;
 }
 
 function generarNumeroOrden() {
