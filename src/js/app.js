@@ -335,6 +335,7 @@ function solicitarDatosTarjeta() {
         numeroTarjeta.length !== 16 ||
         vencimiento.length !== 5 ||
         !validarFormatoFecha(vencimiento) ||
+        (codigoSeguridad.length !== 3 && codigoSeguridad.length !== 4) ||
         !validarFormatoCorreo(correoElectronico)
       ) {
         Swal.showValidationMessage(
@@ -374,7 +375,6 @@ function validarFormatoCorreo(correo) {
   return pattern.test(correo);
 }
 
-
 function realizarCompra(datosTarjeta) {
   const numOrden = generarNumeroOrden();
   const correoElectronico = datosTarjeta.correo;
@@ -391,7 +391,7 @@ function realizarCompra(datosTarjeta) {
         localStorage.setItem("carrito", JSON.stringify(carrito));
         actualizarTablaCarrito();
         resolve();
-      }, 2000);
+      }, 1500);
     });
   });
 
