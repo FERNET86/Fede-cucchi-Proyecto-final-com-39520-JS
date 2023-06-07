@@ -50,7 +50,7 @@ function verificarEdad() {
     } else if (result.dismiss === Swal.DismissReason.cancel) {
       // Si se cancela la entrada de la edad, redirecciona a una página de internet
       window.location.href =
-        "file:///C:/CODER/39520/Pre%20entrega%203-39520-Fede%20Cucchi/prohibido.html";
+        "https://amazing-dolphin-a9c593.netlify.app/";
     } else {
       // Si la edad ingresada es insuficiente, muestra un mensaje de restricción y redirecciona
       Swal.fire({
