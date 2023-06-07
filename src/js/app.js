@@ -94,7 +94,7 @@ stock.push(new Producto("Vino Malbec", "Portillo", "750ml", 1100, "https://quiri
 stock.push(new Producto("Vino Blanco", "Portillo", "750ml", 1100, "https://www.espaciovino.com.ar/media/default/0001/59/thumb_58924_default_big.jpeg" ));
 stock.push(new Producto("Gaseosa", "Coca-Cola", "2,25L", 700, "https://quirinobebidas.com.ar/wp-content/uploads/2020/08/LOS-PRIMEROS-10-LLEVAN-PLACA-DE-REGALO-11.png"));
 stock.push(new Producto("Jugo de naranja", "Cepita", "1L", 450, "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT3H8cAWLTtfojwSODywqsBHYbMbP2lC7rvQwsuXrWKXxSftX3zvVe6-76kfjCP5Gkp5OjG9fO27mXGEmIN7QU3FMVXPRdnAKyoQNKJ1eOwQwXzMnfV7GWIvA"));
-stock.push(new Producto("Energizante", "Speed", "473ml", 300, "https://http2.mlstatic.com/D_NQ_NP_2X_645278-MLA48803556057_012022-F.webp"));
+stock.push(new Producto("Energizante", "Speed", "269ml", 300, "http://delivery.desanrafael.ar/contenidos/495_1.jpg"));
 
 localStorage.setItem("stock", JSON.stringify(stock));
 
