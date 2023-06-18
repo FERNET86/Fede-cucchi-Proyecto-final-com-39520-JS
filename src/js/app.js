@@ -12,7 +12,7 @@ async function lala() {
     { header },
     { params }
   );
-  console.warn("lala: ", data);
+  console.warn("response: ", data);
 }
 
 lala();
@@ -74,7 +74,6 @@ let stock = []; ///aqui iran los productos
 ////traerme los elementos del dom
 const tabla = document.getElementById("items");
 const selectProductos = document.getElementById("productos");
-const btnAgregar = document.getElementById("agregar");
 const btnOrdenar = document.getElementById("ordenar");
 const btnVaciar = document.getElementById("vaciar");
 const total = document.getElementById("total");
@@ -94,7 +93,7 @@ stock.push(new Producto("Vino Malbec", "Portillo", "750ml", 1100, "https://quiri
 stock.push(new Producto("Vino Blanco", "Portillo", "750ml", 1100, "https://www.espaciovino.com.ar/media/default/0001/59/thumb_58924_default_big.jpeg" ));
 stock.push(new Producto("Gaseosa", "Coca-Cola", "2,25L", 700, "https://quirinobebidas.com.ar/wp-content/uploads/2020/08/LOS-PRIMEROS-10-LLEVAN-PLACA-DE-REGALO-11.png"));
 stock.push(new Producto("Jugo de naranja", "Cepita", "1L", 450, "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT3H8cAWLTtfojwSODywqsBHYbMbP2lC7rvQwsuXrWKXxSftX3zvVe6-76kfjCP5Gkp5OjG9fO27mXGEmIN7QU3FMVXPRdnAKyoQNKJ1eOwQwXzMnfV7GWIvA"));
-stock.push(new Producto("Energizante", "Speed", "269ml", 300, "http://delivery.desanrafael.ar/contenidos/495_1.jpg"));
+stock.push(new Producto("Energizante", "Speed", "269ml", 300, "https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3050133_f.jpg"));
 
 localStorage.setItem("stock", JSON.stringify(stock));
 
@@ -104,26 +103,6 @@ function allEventListeners() {
   ////agregamos un escuchador del evento cuando el DOM se carga
   window.addEventListener("DOMContentLoaded", traerItems);
   btnVaciar.addEventListener("click", vaciarCarrito);
-
-  ///event listener de agregar un producto al carrito
-  btnAgregar.addEventListener("submit", (e) => {
-    e.preventDefault(); ///evito el refresque
-    const productoSeleccionado = stock[+selectProductos.value]; ///obtengo el producto elegido
-    console.log(productoSeleccionado);
-    const indiceCarrito = carrito.findIndex((item) => {
-      return item.producto.nombre == productoSeleccionado.nombre;
-    });
-    console.log(indiceCarrito);
-    if (indiceCarrito != -1) {
-      carrito[indiceCarrito].cantidad++;
-    } else {
-      const item = new Item(productoSeleccionado, 1);
-      carrito.push(item);
-    }
-
-    actualizarTablaCarrito();
-    localStorage.setItem("carrito", JSON.stringify(carrito)); //actualizo el carrito en el localStorage
-  });
 }
 
 function traerItems() {
